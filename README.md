@@ -18,7 +18,7 @@ Through this project, I learned how to handle variable numbers of arguments, par
 - Follow the 42 School coding standards (Norminette)
 - Return the number of printed characters (matching standard `printf()` behavior)
 
-## � Format Specifiers Implemented
+## 📚 Format Specifiers Implemented
 
 ### Conversion Specifiers
 
@@ -50,7 +50,7 @@ The project is organized with a modular approach:
   - `void_path.c` - Pointer address conversion
 - **libft/** - Custom C library used for utility functions
 
-## �️ Compilation
+## 🛠️ Compilation
 
 ### Building the Library
 
@@ -69,7 +69,7 @@ This creates `libftprintf.a` - a static library containing all the functions.
 - `make fclean` - Remove object files and the library
 - `make re` - Recompile everything from scratch
 
-## � Usage Example
+## 💡 Usage Example
 
 ```c
 #include "ft_printf.h"
@@ -124,7 +124,7 @@ gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
 - **Edge Cases**: Properly handles NULL pointers, zero values, and boundary conditions
 - **Memory Management**: Careful allocation and deallocation to prevent leaks
 
-## � Notes
+## 📝 Notes
 
 - All functions follow the 42 Norminette coding standards
 - Memory is properly managed with no leaks
@@ -133,7 +133,7 @@ gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
 - This implementation does not include bonus features (field width, precision, flags)
 - The library is designed to be reusable in future 42 projects
 
-## � Author
+## 👤 Author
 
 **opopov** - 42 School Student
 
