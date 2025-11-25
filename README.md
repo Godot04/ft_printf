@@ -69,43 +69,6 @@ This creates `libftprintf.a` - a static library containing all the functions.
 - `make fclean` - Remove object files and the library
 - `make re` - Recompile everything from scratch
 
-## 💡 Usage Example
-
-```c
-#include "ft_printf.h"
-
-int main(void)
-{
-    int count;
-
-    // Print a string
-    count = ft_printf("Hello, %s!\n", "World");
-    ft_printf("Characters printed: %d\n", count);
-
-    // Print numbers in different formats
-    ft_printf("Decimal: %d\n", 42);
-    ft_printf("Hexadecimal: %x\n", 255);
-    ft_printf("Uppercase hex: %X\n", 255);
-    ft_printf("Unsigned: %u\n", 4294967295U);
-
-    // Print pointer address
-    int x = 42;
-    ft_printf("Pointer: %p\n", &x);
-
-    // Print character and percent
-    ft_printf("Character: %c\n", 'A');
-    ft_printf("Percent: %%\n");
-
-    return 0;
-}
-```
-
-Compile your program with the library:
-
-```bash
-gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
-```
-
 ## ⚙️ Technical Details
 
 - **Language**: C
@@ -130,13 +93,8 @@ gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
 - Memory is properly managed with no leaks
 - Returns the total number of characters printed
 - Handles edge cases (NULL pointers, zero values, INT_MIN, INT_MAX, etc.)
-- This implementation does not include bonus features (field width, precision, flags)
 - The library is designed to be reusable in future 42 projects
 
 ## 👤 Author
 
 **opopov** - 42 School Student
-
----
-
-*Created as part of the 42 School curriculum - November/December 2024*
