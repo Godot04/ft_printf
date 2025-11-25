@@ -76,7 +76,7 @@ This creates `libftprintf.a` - a static library containing all the functions.
 - **Flags**: `-Wall -Wextra -Werror`
 - **Norm**: 42 Norminette
 - **Library Type**: Static library (`.a`)
-- **Dependencies**: libft (included)
+- **Dependencies**: libft
 
 ## 📝 Notes
 
