@@ -78,15 +78,6 @@ This creates `libftprintf.a` - a static library containing all the functions.
 - **Library Type**: Static library (`.a`)
 - **Dependencies**: libft (included)
 
-## 🔍 Implementation Highlights
-
-- **Variadic Functions**: Uses `va_list`, `va_start`, `va_arg`, and `va_end` from `stdarg.h`
-- **Modular Design**: Each conversion specifier has its own dedicated handler function
-- **Direct Output**: Uses `write()` system calls without buffering
-- **Return Value**: Tracks and returns total number of characters printed
-- **Edge Cases**: Properly handles NULL pointers, zero values, and boundary conditions
-- **Memory Management**: Careful allocation and deallocation to prevent leaks
-
 ## 📝 Notes
 
 - All functions follow the 42 Norminette coding standards
