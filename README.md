@@ -34,7 +34,7 @@ My implementation supports the following format specifiers:
 - `%X` - Print a number in uppercase hexadecimal
 - `%%` - Print a percent sign
 
-### 🔍 Implementation Structure
+### Implementation Structure
 
 The project is organized with a modular approach:
 
