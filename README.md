@@ -1,115 +1,75 @@
-# ft_printf
+# ft_printf - Custom Printf Implementation
 
-A custom implementation of the C standard library function `printf()`. This project is part of the 42 School curriculum and aims to recreate the behavior of `printf()` with support for various format specifiers.
+![42 school](https://img.shields.io/badge/42-School-000000?style=flat-square&logo=42&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white)
+![Norminette](https://img.shields.io/badge/Norminette-passing-success?style=flat-square)
 
-## 📋 Table of Contents
+## 📖 About
 
-- [About](#about)
-- [Features](#features)
-- [Format Specifiers](#format-specifiers)
-- [Project Structure](#project-structure)
-- [Compilation](#compilation)
-- [Usage](#usage)
-- [Testing](#testing)
-- [Implementation Details](#implementation-details)
-- [Author](#author)
+**ft_printf** is a project at 42 School that involves recreating the `printf()` function from the C standard library. This project teaches variadic functions, format parsing, type conversion, and low-level output operations using the `write()` system call.
 
-## 🎯 About
+Through this project, I learned how to handle variable numbers of arguments, parse format strings, and implement different type conversions while maintaining strict adherence to coding standards.
 
-This project involves recoding the `printf()` function from the C standard library. The goal is to understand variadic functions, format parsing, and type conversion while adhering to strict coding standards and memory management rules.
+## 🎯 Project Goals
 
-## ✨ Features
+- Understand and implement variadic functions using `stdarg.h`
+- Parse format strings and handle multiple conversion specifiers
+- Learn type conversion and low-level output operations
+- Follow the 42 School coding standards (Norminette)
+- Return the number of printed characters (matching standard `printf()` behavior)
 
-- **Variadic Function**: Handles variable number of arguments using `stdarg.h`
-- **Format Parsing**: Correctly parses format strings and identifies conversion specifiers
-- **Return Value**: Returns the number of characters printed (matching standard `printf()` behavior)
-- **NULL Handling**: Properly handles NULL pointers and edge cases
-- **No Buffer Management**: Uses direct `write()` calls for output
-- **Norm Compliant**: Follows 42 School coding standards (Norminette)
+## � Format Specifiers Implemented
 
-## 🔤 Format Specifiers
+### Conversion Specifiers
 
-The implementation supports the following conversion specifiers:
+My implementation supports the following format specifiers:
 
-| Specifier | Description | Example |
-|-----------|-------------|---------|
-| `%c` | Print a single character | `ft_printf("%c", 'A')` |
-| `%s` | Print a string | `ft_printf("%s", "Hello")` |
-| `%p` | Print a pointer address in hexadecimal | `ft_printf("%p", ptr)` |
-| `%d` | Print a signed decimal integer | `ft_printf("%d", -42)` |
-| `%i` | Print a signed integer (same as `%d`) | `ft_printf("%i", 42)` |
-| `%u` | Print an unsigned decimal integer | `ft_printf("%u", 42)` |
-| `%x` | Print a number in lowercase hexadecimal | `ft_printf("%x", 255)` → `ff` |
-| `%X` | Print a number in uppercase hexadecimal | `ft_printf("%X", 255)` → `FF` |
-| `%%` | Print a percent sign | `ft_printf("%%")` → `%` |
+- `%c` - Print a single character
+- `%s` - Print a string (handles NULL as "(null)")
+- `%p` - Print a pointer address in hexadecimal format (handles NULL as "(nil)")
+- `%d` - Print a signed decimal integer
+- `%i` - Print a signed integer (same as %d)
+- `%u` - Print an unsigned decimal integer
+- `%x` - Print a number in lowercase hexadecimal
+- `%X` - Print a number in uppercase hexadecimal
+- `%%` - Print a percent sign
 
-## 📁 Project Structure
+### Implementation Structure
 
-```
-ft_printf/
-├── ft_printf.c              # Main ft_printf implementation
-├── ft_printf.h              # Header file with function prototypes
-├── Makefile                 # Build configuration
-├── test.c                   # Comprehensive test suite
-├── libft/                   # Custom C library (dependency)
-│   ├── libft.h
-│   ├── Makefile
-│   └── *.c                  # Various libft functions
-└── pathes/                  # Format specifier handlers
-    ├── ch_path.c           # Character (%c) handler
-    ├── string_path.c       # String (%s) handler
-    ├── decimal_path.c      # Decimal (%d, %i) handler
-    ├── unsigned_decimal_path.c  # Unsigned decimal (%u) handler
-    ├── hexadecimal_lower_path.c # Lowercase hex (%x) handler
-    ├── hexadecimal_upper_path.c # Uppercase hex (%X) handler
-    └── void_path.c         # Pointer (%p) handler
-```
+The project is organized with a modular approach:
 
-## 🔨 Compilation
+- **ft_printf.c** - Main function that parses format string and delegates to handlers
+- **ft_printf.h** - Header file with function prototypes
+- **pathes/** - Directory containing individual format specifier handlers:
+  - `ch_path.c` - Character conversion
+  - `string_path.c` - String conversion
+  - `decimal_path.c` - Signed integer conversion
+  - `unsigned_decimal_path.c` - Unsigned integer conversion
+  - `hexadecimal_lower_path.c` - Lowercase hexadecimal conversion
+  - `hexadecimal_upper_path.c` - Uppercase hexadecimal conversion
+  - `void_path.c` - Pointer address conversion
+- **libft/** - Custom C library used for utility functions
 
-### Build the Library
+## �️ Compilation
+
+### Building the Library
+
+To compile the library, simply run:
 
 ```bash
 make
 ```
 
-This creates `libftprintf.a` which includes both `ft_printf` and the `libft` functions.
+This creates `libftprintf.a` - a static library containing all the functions.
 
-### Clean Object Files
+### Available Commands
 
-```bash
-make clean
-```
+- `make` - Compile the library
+- `make clean` - Remove object files
+- `make fclean` - Remove object files and the library
+- `make re` - Recompile everything from scratch
 
-### Remove All Generated Files
-
-```bash
-make fclean
-```
-
-### Rebuild from Scratch
-
-```bash
-make re
-```
-
-## 🚀 Usage
-
-### 1. Include the Header
-
-```c
-#include "ft_printf.h"
-```
-
-### 2. Link the Library
-
-Compile your program with the library:
-
-```bash
-gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
-```
-
-### 3. Example Code
+## � Usage Example
 
 ```c
 #include "ft_printf.h"
@@ -122,97 +82,61 @@ int main(void)
     count = ft_printf("Hello, %s!\n", "World");
     ft_printf("Characters printed: %d\n", count);
 
-    // Print numbers
+    // Print numbers in different formats
     ft_printf("Decimal: %d\n", 42);
     ft_printf("Hexadecimal: %x\n", 255);
     ft_printf("Uppercase hex: %X\n", 255);
-
-    // Print pointer
-    int x = 42;
-    ft_printf("Pointer address: %p\n", &x);
-
-    // Print unsigned
     ft_printf("Unsigned: %u\n", 4294967295U);
 
-    // Print character
-    ft_printf("Character: %c\n", 'A');
+    // Print pointer address
+    int x = 42;
+    ft_printf("Pointer: %p\n", &x);
 
-    // Print percent sign
-    ft_printf("Percentage: %%\n");
+    // Print character and percent
+    ft_printf("Character: %c\n", 'A');
+    ft_printf("Percent: %%\n");
 
     return 0;
 }
 ```
 
-## 🧪 Testing
-
-The project includes a comprehensive test suite in `test.c` that compares `ft_printf` output against the standard `printf` function.
-
-### Run Tests
+Compile your program with the library:
 
 ```bash
-# Compile the test program
-gcc -Wall -Wextra -Werror test.c libftprintf.a -o test
-
-# Run tests
-./test
+gcc -Wall -Wextra -Werror your_program.c libftprintf.a -o your_program
 ```
 
-The test suite covers:
-- Basic string printing
-- All format specifiers (%c, %s, %p, %d, %i, %u, %x, %X, %%)
-- NULL pointer handling
-- Edge cases (INT_MAX, INT_MIN, UINT_MAX, zero values)
-- Mixed format strings
-- Return value verification
+## ⚙️ Technical Details
 
-## 🔍 Implementation Details
+- **Language**: C
+- **Compiler**: gcc
+- **Flags**: `-Wall -Wextra -Werror`
+- **Norm**: 42 Norminette
+- **Library Type**: Static library (`.a`)
+- **Dependencies**: libft (included)
 
-### Main Function (`ft_printf.c`)
+## 🔍 Implementation Highlights
 
-The core function parses the format string character by character:
-- Regular characters are printed directly
-- When `%` is encountered, it delegates to the appropriate handler based on the following character
+- **Variadic Functions**: Uses `va_list`, `va_start`, `va_arg`, and `va_end` from `stdarg.h`
+- **Modular Design**: Each conversion specifier has its own dedicated handler function
+- **Direct Output**: Uses `write()` system calls without buffering
+- **Return Value**: Tracks and returns total number of characters printed
+- **Edge Cases**: Properly handles NULL pointers, zero values, and boundary conditions
+- **Memory Management**: Careful allocation and deallocation to prevent leaks
+
+## � Notes
+
+- All functions follow the 42 Norminette coding standards
+- Memory is properly managed with no leaks
 - Returns the total number of characters printed
+- Handles edge cases (NULL pointers, zero values, INT_MIN, INT_MAX, etc.)
+- This implementation does not include bonus features (field width, precision, flags)
+- The library is designed to be reusable in future 42 projects
 
-### Format Handlers (`pathes/`)
+## � Author
 
-Each format specifier has its dedicated handler:
-
-- **`ch_path.c`**: Writes a single character using `write()`
-- **`string_path.c`**: Iterates through string characters; handles NULL as "(null)"
-- **`decimal_path.c`**: Uses `ft_itoa()` from libft to convert integers to strings
-- **`unsigned_decimal_path.c`**: Manual conversion of unsigned integers to decimal strings
-- **`hexadecimal_lower_path.c`**: Converts unsigned int to lowercase hexadecimal
-- **`hexadecimal_upper_path.c`**: Converts unsigned int to uppercase hexadecimal
-- **`void_path.c`**: Converts pointer address to hexadecimal with "0x" prefix; handles NULL as "(nil)"
-
-### Key Design Decisions
-
-1. **Modular Architecture**: Each format specifier is handled by a separate function for better maintainability
-2. **No Buffering**: Direct `write()` system calls ensure immediate output
-3. **Character Counting**: Each handler returns the number of characters written
-4. **libft Integration**: Leverages existing libft functions (especially `ft_itoa()`)
-5. **Error Handling**: Returns -1 on invalid format specifiers
-
-## 👤 Author
-
-**opopov**
-- 42 School Student
-- Created: November 28, 2024
-- Last Updated: December 2, 2024
+**opopov** - 42 School Student
 
 ---
 
-## 📝 Notes
-
-- This implementation does not support field width, precision, or flags (bonus features)
-- Memory management is handled carefully with proper `free()` calls
-- The project follows the 42 School Norm (Norminette validation)
-- All code is commented with the standard 42 header
-
-## 📚 Resources
-
-- [printf man page](https://man7.org/linux/man-pages/man3/printf.3.html)
-- [Variadic functions in C](https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html)
-- 42 School subject: `en.subject.pdf`
+*Created as part of the 42 School curriculum - November/December 2024*
