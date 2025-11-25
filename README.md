@@ -8,7 +8,7 @@
 
 **ft_printf** is a project at 42 School that involves recreating the `printf()` function from the C standard library. This project teaches variadic functions, format parsing, type conversion, and low-level output operations using the `write()` system call.
 
-Through this project, I learned how to handle variable numbers of arguments, parse format strings, and implement different type conversions while maintaining strict adherence to coding standards.
+Through this project, I learned how to handle variable numbers of arguments, parse format strings, and implement different type conversions while maintaining coding standards.
 
 ## 🎯 Project Goals
 
@@ -25,10 +25,10 @@ Through this project, I learned how to handle variable numbers of arguments, par
 My implementation supports the following format specifiers:
 
 - `%c` - Print a single character
-- `%s` - Print a string (handles NULL as "(null)")
-- `%p` - Print a pointer address in hexadecimal format (handles NULL as "(nil)")
+- `%s` - Print a string (handles NULL)
+- `%p` - Print a pointer address in hexadecimal format (handles NULL)
 - `%d` - Print a signed decimal integer
-- `%i` - Print a signed integer (same as %d)
+- `%i` - Print a signed integer
 - `%u` - Print an unsigned decimal integer
 - `%x` - Print a number in lowercase hexadecimal
 - `%X` - Print a number in uppercase hexadecimal
